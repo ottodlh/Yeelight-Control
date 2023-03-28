@@ -33,12 +33,13 @@
             this.lblBrillo = new System.Windows.Forms.Label();
             this.bwSinc = new System.ComponentModel.BackgroundWorker();
             this.lblstatus = new System.Windows.Forms.Label();
-            this.pColor = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnColor2 = new YControl.btn();
+            this.btnColor1 = new YControl.btn();
+            this.tbtnSinc = new YControl.tools.ToogleButton();
             this.btn_Color = new YControl.btn();
             this.btn_Apagar = new YControl.btn();
             this.btn_Encender = new YControl.btn();
-            this.tbtnSinc = new YControl.tools.ToogleButton();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tbBrillo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +62,6 @@
             this.lblBrillo.Size = new System.Drawing.Size(101, 24);
             this.lblBrillo.TabIndex = 6;
             this.lblBrillo.Text = "Brillo 100%";
-            this.lblBrillo.Click += new System.EventHandler(this.lblBrillo_Click);
             // 
             // bwSinc
             // 
@@ -80,63 +80,50 @@
             this.lblstatus.TabIndex = 7;
             this.lblstatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pColor
+            // label1
             // 
-            this.pColor.Location = new System.Drawing.Point(13, 81);
-            this.pColor.Name = "pColor";
-            this.pColor.Size = new System.Drawing.Size(380, 13);
-            this.pColor.TabIndex = 8;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(64, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Sincronizar pantalla";
             // 
-            // btn_Color
+            // btnColor2
             // 
-            this.btn_Color.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btn_Color.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_Color.BorderRadius = 10;
-            this.btn_Color.BorderSize = 0;
-            this.btn_Color.FlatAppearance.BorderSize = 0;
-            this.btn_Color.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Color.ForeColor = System.Drawing.Color.White;
-            this.btn_Color.Location = new System.Drawing.Point(186, 100);
-            this.btn_Color.Name = "btn_Color";
-            this.btn_Color.Size = new System.Drawing.Size(82, 29);
-            this.btn_Color.TabIndex = 11;
-            this.btn_Color.Text = "Color";
-            this.btn_Color.UseVisualStyleBackColor = false;
-            this.btn_Color.Click += new System.EventHandler(this.btn_Color_Click);
+            this.btnColor2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnColor2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnColor2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnColor2.BorderRadius = 20;
+            this.btnColor2.BorderSize = 0;
+            this.btnColor2.Enabled = false;
+            this.btnColor2.FlatAppearance.BorderSize = 0;
+            this.btnColor2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnColor2.ForeColor = System.Drawing.Color.White;
+            this.btnColor2.Location = new System.Drawing.Point(316, 97);
+            this.btnColor2.Name = "btnColor2";
+            this.btnColor2.Size = new System.Drawing.Size(37, 35);
+            this.btnColor2.TabIndex = 15;
+            this.btnColor2.TextColor = System.Drawing.Color.White;
+            this.btnColor2.UseVisualStyleBackColor = false;
             // 
-            // btn_Apagar
+            // btnColor1
             // 
-            this.btn_Apagar.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btn_Apagar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_Apagar.BorderRadius = 10;
-            this.btn_Apagar.BorderSize = 0;
-            this.btn_Apagar.FlatAppearance.BorderSize = 0;
-            this.btn_Apagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Apagar.ForeColor = System.Drawing.Color.White;
-            this.btn_Apagar.Location = new System.Drawing.Point(101, 100);
-            this.btn_Apagar.Name = "btn_Apagar";
-            this.btn_Apagar.Size = new System.Drawing.Size(82, 29);
-            this.btn_Apagar.TabIndex = 10;
-            this.btn_Apagar.Text = "Apagar";
-            this.btn_Apagar.UseVisualStyleBackColor = false;
-            this.btn_Apagar.Click += new System.EventHandler(this.btn_Apagar_Click);
-            // 
-            // btn_Encender
-            // 
-            this.btn_Encender.BackColor = System.Drawing.SystemColors.Highlight;
-            this.btn_Encender.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_Encender.BorderRadius = 10;
-            this.btn_Encender.BorderSize = 0;
-            this.btn_Encender.FlatAppearance.BorderSize = 0;
-            this.btn_Encender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Encender.ForeColor = System.Drawing.Color.White;
-            this.btn_Encender.Location = new System.Drawing.Point(13, 100);
-            this.btn_Encender.Name = "btn_Encender";
-            this.btn_Encender.Size = new System.Drawing.Size(82, 29);
-            this.btn_Encender.TabIndex = 9;
-            this.btn_Encender.Text = "Encender";
-            this.btn_Encender.UseVisualStyleBackColor = false;
-            this.btn_Encender.Click += new System.EventHandler(this.btn_Encender_Click);
+            this.btnColor1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnColor1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnColor1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnColor1.BorderRadius = 20;
+            this.btnColor1.BorderSize = 0;
+            this.btnColor1.Enabled = false;
+            this.btnColor1.FlatAppearance.BorderSize = 0;
+            this.btnColor1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnColor1.ForeColor = System.Drawing.Color.White;
+            this.btnColor1.Location = new System.Drawing.Point(352, 94);
+            this.btnColor1.Name = "btnColor1";
+            this.btnColor1.Size = new System.Drawing.Size(41, 40);
+            this.btnColor1.TabIndex = 14;
+            this.btnColor1.TextColor = System.Drawing.Color.White;
+            this.btnColor1.UseVisualStyleBackColor = false;
             // 
             // tbtnSinc
             // 
@@ -153,14 +140,62 @@
             this.tbtnSinc.UseVisualStyleBackColor = true;
             this.tbtnSinc.CheckedChanged += new System.EventHandler(this.tbtnSinc_CheckedChanged);
             // 
-            // label1
+            // btn_Color
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(64, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Sincronizar pantalla";
+            this.btn_Color.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btn_Color.BackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.btn_Color.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Color.BorderRadius = 10;
+            this.btn_Color.BorderSize = 0;
+            this.btn_Color.FlatAppearance.BorderSize = 0;
+            this.btn_Color.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Color.ForeColor = System.Drawing.Color.White;
+            this.btn_Color.Location = new System.Drawing.Point(186, 100);
+            this.btn_Color.Name = "btn_Color";
+            this.btn_Color.Size = new System.Drawing.Size(82, 29);
+            this.btn_Color.TabIndex = 11;
+            this.btn_Color.Text = "Color";
+            this.btn_Color.TextColor = System.Drawing.Color.White;
+            this.btn_Color.UseVisualStyleBackColor = false;
+            this.btn_Color.Click += new System.EventHandler(this.btn_Color_Click);
+            // 
+            // btn_Apagar
+            // 
+            this.btn_Apagar.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btn_Apagar.BackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.btn_Apagar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Apagar.BorderRadius = 10;
+            this.btn_Apagar.BorderSize = 0;
+            this.btn_Apagar.FlatAppearance.BorderSize = 0;
+            this.btn_Apagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Apagar.ForeColor = System.Drawing.Color.White;
+            this.btn_Apagar.Location = new System.Drawing.Point(101, 100);
+            this.btn_Apagar.Name = "btn_Apagar";
+            this.btn_Apagar.Size = new System.Drawing.Size(82, 29);
+            this.btn_Apagar.TabIndex = 10;
+            this.btn_Apagar.Text = "Apagar";
+            this.btn_Apagar.TextColor = System.Drawing.Color.White;
+            this.btn_Apagar.UseVisualStyleBackColor = false;
+            this.btn_Apagar.Click += new System.EventHandler(this.btn_Apagar_Click);
+            // 
+            // btn_Encender
+            // 
+            this.btn_Encender.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btn_Encender.BackgroundColor = System.Drawing.SystemColors.Highlight;
+            this.btn_Encender.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_Encender.BorderRadius = 10;
+            this.btn_Encender.BorderSize = 0;
+            this.btn_Encender.FlatAppearance.BorderSize = 0;
+            this.btn_Encender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Encender.ForeColor = System.Drawing.Color.White;
+            this.btn_Encender.Location = new System.Drawing.Point(13, 100);
+            this.btn_Encender.Name = "btn_Encender";
+            this.btn_Encender.Size = new System.Drawing.Size(82, 29);
+            this.btn_Encender.TabIndex = 9;
+            this.btn_Encender.Text = "Encender";
+            this.btn_Encender.TextColor = System.Drawing.Color.White;
+            this.btn_Encender.UseVisualStyleBackColor = false;
+            this.btn_Encender.Click += new System.EventHandler(this.btn_Encender_Click);
             // 
             // Form1
             // 
@@ -168,12 +203,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(405, 139);
+            this.Controls.Add(this.btnColor2);
+            this.Controls.Add(this.btnColor1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbtnSinc);
             this.Controls.Add(this.btn_Color);
             this.Controls.Add(this.btn_Apagar);
             this.Controls.Add(this.btn_Encender);
-            this.Controls.Add(this.pColor);
             this.Controls.Add(this.lblstatus);
             this.Controls.Add(this.lblBrillo);
             this.Controls.Add(this.tbBrillo);
@@ -196,12 +232,13 @@
         private System.Windows.Forms.Label lblBrillo;
         private System.ComponentModel.BackgroundWorker bwSinc;
         private System.Windows.Forms.Label lblstatus;
-        private System.Windows.Forms.Panel pColor;
         private btn btn_Encender;
         private btn btn_Apagar;
         private btn btn_Color;
         private tools.ToogleButton tbtnSinc;
         private System.Windows.Forms.Label label1;
+        private btn btnColor1;
+        private btn btnColor2;
     }
 }
 

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace YControl
@@ -36,11 +31,12 @@ namespace YControl
             yeelight.TurnOn();
             yeelight.SetBrightness(tbBrillo.Value);
             yeelight.SetRGBColor(color.R, color.G, color.B);
-            yeelight.Dispose();
+            yeelight.DisposeClient();
+            MuestraColor(color);
         }
         private void Apagar(string strIP)
         {
-            YeelightControl yeelight = new YeelightControl("192.168.0.4");
+            YeelightControl yeelight = new YeelightControl(strIP);
             yeelight.TurnOff();
         }
         private void btnApagar_Click(object sender, EventArgs e)
@@ -77,20 +73,15 @@ namespace YControl
             lblBrillo.Text = "Brillo " + tbBrillo.Value.ToString() + "%";
         }
 
-        private void lblBrillo_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void bwSinc_DoWork(object sender, DoWorkEventArgs e)
         {
-            BackgroundWorker worker = (BackgroundWorker)sender;
-            while (!worker.CancellationPending)
+            BackgroundWorker w = (BackgroundWorker)sender;
+            while (!w.CancellationPending)
             {
-                Color averageColor = GetAverageColor.GetColor();
-                Encender("192.168.0.4", averageColor);
-                pColor.BackColor = averageColor;
-                System.Threading.Thread.Sleep(50);
+                Color color = GetAverageColor.GetColor();
+                Encender("192.168.0.4", color);
+                System.Threading.Thread.Sleep(100);
             }
             e.Cancel = true;
         }
@@ -183,12 +174,13 @@ namespace YControl
         {
             try
             {
-                if (tbtnSinc.Checked)
+                if (tbtnSinc.Checked && !bwSinc.IsBusy)
                 {
-                    if (!bwSinc.IsBusy)
-                    {
-                        bwSinc.RunWorkerAsync();
-                    }
+                    bwSinc.RunWorkerAsync();
+                }
+                else
+                {
+                    tbtnSinc.Checked = false;
                 }
 
                 if (!tbtnSinc.Checked)
@@ -197,6 +189,11 @@ namespace YControl
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Yeelight Control", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+        private void MuestraColor(Color color)
+        {
+            btnColor1.BackColor = color;
+            btnColor2.BackColor = color;
         }
     }
 }
