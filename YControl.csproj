@@ -27,7 +27,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\Mis Proyectos\YControl\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="classes\Device.cs" />
+    <Compile Include="classes\DeviceControl.cs" />
+    <Compile Include="classes\FormSettings.cs" />
+    <Compile Include="classes\LocalDiscovery.cs" />
+    <Compile Include="classes\ScreenInterrogatory.cs" />
+    <Compile Include="classes\ScreenProperties.cs" />
+    <Compile Include="classes\Utils.cs" />
     <Compile Include="tools\btn.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -55,15 +62,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="classes\GetAverageColor.cs" />
+    <Compile Include="classes\ScreenColor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="classes\YeelightControl.cs" />
+    <Compile Include="tools\Cmbbx.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="tools\ToogleButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

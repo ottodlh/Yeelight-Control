@@ -49,9 +49,11 @@ namespace YControl
             SendCommand($"{{\"id\":1,\"method\":\"set_rgb\",\"params\":[{rgb},\"smooth\",500]}}\r\n");
         }
 
-        public void Dispose()
+        public void DisposeClient()
         {
             client.Close();
+            client.Dispose();
+            client = null;
         }
     }
 }
