@@ -47,10 +47,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.yeelightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iniciarAutomaticamenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbbxScreen = new YControl.tools.Cmbbx();
             this.btnAgregar = new YControl.btn();
             this.tbtnSinc = new YControl.tools.ToogleButton();
-            this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.tbBrillo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbTemperatura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbSuavidad)).BeginInit();
@@ -244,6 +244,14 @@
             this.iniciarAutomaticamenteToolStripMenuItem.Text = "Iniciar con Windows";
             this.iniciarAutomaticamenteToolStripMenuItem.CheckedChanged += new System.EventHandler(this.iniciarAutomaticamenteToolStripMenuItem_CheckedChanged);
             // 
+            // iniciarSincronizarciónAutomaticamenteToolStripMenuItem
+            // 
+            this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem.CheckOnClick = true;
+            this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem.Name = "iniciarSincronizarciónAutomaticamenteToolStripMenuItem";
+            this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem.Size = new System.Drawing.Size(288, 22);
+            this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem.Text = "Iniciar sincronizarción Automaticamente";
+            this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem.CheckedChanged += new System.EventHandler(this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem_CheckedChanged);
+            // 
             // cmbbxScreen
             // 
             this.cmbbxScreen.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -296,14 +304,6 @@
             this.tbtnSinc.TabIndex = 12;
             this.tbtnSinc.UseVisualStyleBackColor = true;
             this.tbtnSinc.CheckedChanged += new System.EventHandler(this.tbtnSinc_CheckedChanged);
-            // 
-            // iniciarSincronizarciónAutomaticamenteToolStripMenuItem
-            // 
-            this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem.CheckOnClick = true;
-            this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem.Name = "iniciarSincronizarciónAutomaticamenteToolStripMenuItem";
-            this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem.Size = new System.Drawing.Size(288, 22);
-            this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem.Text = "Iniciar sincronizarción Automaticamente";
-            this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem.CheckedChanged += new System.EventHandler(this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem_CheckedChanged);
             // 
             // Form1
             // 

@@ -75,8 +75,8 @@ namespace YControl
             localDiscovery.StartListening();
             localDiscovery.SendDiscoveryMessage();
             devices = new List<Device>();
-                if (formSettings.Devices != null)
-                {
+            if (formSettings.Devices != null)
+            {
                 StringEnumerator enumerator = formSettings.Devices.GetEnumerator();
                 try
                 {
@@ -152,14 +152,18 @@ namespace YControl
         }
         private void bwSinc_DoWork(object sender, DoWorkEventArgs e)
         {
-            BackgroundWorker w = (BackgroundWorker)sender;
-            while (!w.CancellationPending)
+            try
             {
-                Color color = ScreenColor.GetAverageColor(cmbbxScreen.SelectedIndex);
-                OnSyncDevices(color);
-                Thread.Sleep(tbSinc.Value);
-            }
-            e.Cancel = true;
+                BackgroundWorker w = (BackgroundWorker)sender;
+                while (!w.CancellationPending)
+                {
+                    Color color = ScreenColor.GetAverageColor(cmbbxScreen.SelectedIndex);
+                    OnSyncDevices(color);
+                    Thread.Sleep(tbSinc.Value);
+                }
+            }catch(Exception ex) { MessageBox.Show(ex.Message,"Yeelight Control",MessageBoxButtons.OK,MessageBoxIcon.Error); }
+            finally { e.Cancel = true; }
+
         }
         private void bwSinc_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
