@@ -5,7 +5,6 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
-using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using YControl.classes;
@@ -197,6 +196,7 @@ namespace YControl
                 {
                     e.Cancel = true;
                     this.Hide();
+                    notifyIcon.ShowBalloonTip(5000, "Yeelight Control", "La aplicación todavía está en ejecución en segundo plano.", ToolTipIcon.None);
                 }
                 else
                 {
