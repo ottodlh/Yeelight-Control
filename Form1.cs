@@ -4,13 +4,11 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using YControl.classes;
-using Timer = System.Windows.Forms.Timer;
 
 namespace YControl
 {
@@ -23,6 +21,7 @@ namespace YControl
         private string strNuevaIp;
         private List<ScreenProperties> screenProperties;
         private FormSettings formSettings = new FormSettings();
+        private bool _quitForce = default;
 
         public Form1()
         {
@@ -35,10 +34,15 @@ namespace YControl
             //Obtener Ajustes
             iniciarAutomaticamenteToolStripMenuItem.Checked = RegistryKeyExists();
             iniciarSincronizarciónAutomaticamenteToolStripMenuItem.Checked = formSettings.SyncAuto;
+            ocultarACerrarToolStripMenuItem.Checked = formSettings.HideOnClose;
             tbBrillo.Value = formSettings.Brightness;
+            lblBrillo.Text = formSettings.Brightness.ToString() + "%";
             tbTemperatura.Value = formSettings.Temperature;
+            lblTemperatura.Text = formSettings.Temperature.ToString();
             tbSuavidad.Value = formSettings.Smoothness;
+            lblSuavidad.Text = formSettings.Smoothness.ToString();
             tbSinc.Value = formSettings.Syncronization;
+            lblSinc.Text = formSettings.Syncronization.ToString();
             UpdateValues();
             tbtnSinc.Checked = iniciarSincronizarciónAutomaticamenteToolStripMenuItem.Checked;
         }
@@ -161,7 +165,8 @@ namespace YControl
                     OnSyncDevices(color);
                     Thread.Sleep(tbSinc.Value);
                 }
-            }catch(Exception ex) { MessageBox.Show(ex.Message,"Yeelight Control",MessageBoxButtons.OK,MessageBoxIcon.Error); }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Yeelight Control", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             finally { e.Cancel = true; }
 
         }
@@ -186,8 +191,24 @@ namespace YControl
         }
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (bwSinc.IsBusy)
-                bwSinc.CancelAsync();
+            try
+            {
+                if (formSettings.HideOnClose && _quitForce == false)
+                {
+                    e.Cancel = true;
+                    this.Hide();
+                }
+                else
+                {
+                    if (bwSinc.IsBusy)
+                        bwSinc.CancelAsync();
+                }
+
+
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message, "Yeelight Control", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+
         }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -333,6 +354,33 @@ namespace YControl
         {
             formSettings.SyncAuto = iniciarSincronizarciónAutomaticamenteToolStripMenuItem.Checked;
             formSettings.Save();
+        }
+        private void ocultarACerrarToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            formSettings.HideOnClose = ocultarACerrarToolStripMenuItem.Checked;
+            formSettings.Save();
+        }
+        private void notifyIcon_DoubleClick(object sender, EventArgs e)
+        {
+            this.Show();
+        }
+        private void notifyIcon_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                contextMenuStrip.Show(Control.MousePosition);
+        }
+        private void abrirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Show();
+        }
+        private void cerrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _quitForce = true;
+            this.Close();
+        }
+        private void contextMenuStrip_MouseLeave(object sender, EventArgs e)
+        {
+            contextMenuStrip.Hide();
         }
     }
 }

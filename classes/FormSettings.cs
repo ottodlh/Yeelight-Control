@@ -83,5 +83,14 @@ namespace YControl.classes
             get { return (int)this["Syncronization"]; }
             set { this["Syncronization"] = value; }
         }
+
+        [UserScopedSetting]
+        [DebuggerNonUserCode]
+        [DefaultSettingValue("False")]
+        public bool HideOnClose
+        {
+            get { return (bool)this["HideOnClose"]; }
+            set { this["HideOnClose"] = value; }
+        }
     }
 }

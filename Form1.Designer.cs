@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tbBrillo = new System.Windows.Forms.TrackBar();
             this.cdialog = new System.Windows.Forms.ColorDialog();
             this.lblBrillo = new System.Windows.Forms.Label();
@@ -48,14 +50,20 @@
             this.yeelightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iniciarAutomaticamenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.ocultarACerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbbxScreen = new YControl.tools.Cmbbx();
             this.btnAgregar = new YControl.btn();
             this.tbtnSinc = new YControl.tools.ToogleButton();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.tbBrillo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbTemperatura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbSuavidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbSinc)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.contextMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbBrillo
@@ -231,7 +239,8 @@
             // 
             this.yeelightToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.iniciarAutomaticamenteToolStripMenuItem,
-            this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem});
+            this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem,
+            this.ocultarACerrarToolStripMenuItem});
             this.yeelightToolStripMenuItem.Name = "yeelightToolStripMenuItem";
             this.yeelightToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.yeelightToolStripMenuItem.Text = "Yeelight";
@@ -251,6 +260,23 @@
             this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem.Size = new System.Drawing.Size(288, 22);
             this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem.Text = "Iniciar sincronizarción Automaticamente";
             this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem.CheckedChanged += new System.EventHandler(this.iniciarSincronizarciónAutomaticamenteToolStripMenuItem_CheckedChanged);
+            // 
+            // notifyIcon
+            // 
+            this.notifyIcon.ContextMenuStrip = this.contextMenuStrip;
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "Yeelight Control";
+            this.notifyIcon.Visible = true;
+            this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
+            this.notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseClick);
+            // 
+            // ocultarACerrarToolStripMenuItem
+            // 
+            this.ocultarACerrarToolStripMenuItem.CheckOnClick = true;
+            this.ocultarACerrarToolStripMenuItem.Name = "ocultarACerrarToolStripMenuItem";
+            this.ocultarACerrarToolStripMenuItem.Size = new System.Drawing.Size(288, 22);
+            this.ocultarACerrarToolStripMenuItem.Text = "Ocultar a Cerrar";
+            this.ocultarACerrarToolStripMenuItem.CheckedChanged += new System.EventHandler(this.ocultarACerrarToolStripMenuItem_CheckedChanged);
             // 
             // cmbbxScreen
             // 
@@ -305,6 +331,29 @@
             this.tbtnSinc.UseVisualStyleBackColor = true;
             this.tbtnSinc.CheckedChanged += new System.EventHandler(this.tbtnSinc_CheckedChanged);
             // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.abrirToolStripMenuItem,
+            this.cerrarToolStripMenuItem});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip.MouseLeave += new System.EventHandler(this.contextMenuStrip_MouseLeave);
+            // 
+            // abrirToolStripMenuItem
+            // 
+            this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abrirToolStripMenuItem.Text = "Abrir";
+            this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click);
+            // 
+            // cerrarToolStripMenuItem
+            // 
+            this.cerrarToolStripMenuItem.Name = "cerrarToolStripMenuItem";
+            this.cerrarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarToolStripMenuItem.Text = "Cerrar";
+            this.cerrarToolStripMenuItem.Click += new System.EventHandler(this.cerrarToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,6 +393,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbSinc)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.contextMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,6 +423,11 @@
         private System.Windows.Forms.ToolStripMenuItem yeelightToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iniciarAutomaticamenteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem iniciarSincronizarciónAutomaticamenteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ocultarACerrarToolStripMenuItem;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cerrarToolStripMenuItem;
     }
 }
 
